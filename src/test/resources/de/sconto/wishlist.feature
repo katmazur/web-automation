@@ -11,7 +11,7 @@ Feature: Sconto Adding to Favourite Feature
     When I click on the Wishlist icon
     Then I see that Wishlist icon state is changed
 
-#  Scenario: Checking Wishlist after addind the product
-#    Given I have added a product to the Wishlist
-#    When I click on the Wishlist icon of a Product
+#  Scenario: Checking Wishlist after adding the product
+#    Given I see that Wishlist icon state is changed
+#    When I click on the Wishlist icon at the header
 #    Then I see the Wishlist Page with added Product
