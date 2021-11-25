@@ -30,8 +30,10 @@ public class HomePage {
 
 
     public void acceptCookies(){
-        $(acceptBtn).click();
-        $(banner).shouldNot(Condition.exist);
+        if ($(acceptBtn).exists()) {
+            $(acceptBtn).click();
+            $(banner).shouldNot(Condition.exist);
+        }
     }
 
     public LoginPage clickLoginIcon() {

@@ -1,8 +1,10 @@
 package de.sconto.steps;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.SelenideElement;
 import de.sconto.pages.HomePage;
 import de.sconto.pages.LoginPage;
+import io.cucumber.docstring.DocString;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -40,5 +42,17 @@ public class LoginSteps {
     @When("I click on Login button")
     public void iClickLoginButton() {
         loginPage.clickLoginBtn();
+    }
+
+    @When("I insert {} and {}")
+    public void iInsertInvalidUserCreds(String username, String password) {
+        loginPage.invalidLoginInput(username,password);
+    }
+    @Then("I should see error message:")
+    public void iShouldseeErrorMessage(DocString message){
+        String errorMassage = message.getContent();
+        SelenideElement pageMessage = loginPage.getValidationMessageElement();
+        pageMessage.shouldHave(text(errorMassage));
+
     }
 }

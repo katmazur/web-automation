@@ -11,7 +11,6 @@ import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static de.sconto.pages.ProductsListPage.PLPURL;
 
-//Then I see the Wishlist Page with added Product
 
 public class WishlistSteps {
     ProductsListPage productsListPage;
@@ -21,7 +20,7 @@ public class WishlistSteps {
     @Given("I am on the Product Listing Page")
     public void iAmOnProductsListPage() {
         productsListPage = open(PLPURL, ProductsListPage.class);
-        wishlistCount = productsListPage.getWishlistCount();
+        wishlistCount = productsListPage.getWishlistCount(); //separate step
     }
     @When("I click on the Wishlist icon")
     public void iClickOnWishlist() {
