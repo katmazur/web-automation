@@ -7,7 +7,6 @@ import de.sconto.pages.LoginPage;
 import io.cucumber.docstring.DocString;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-
 import static com.codeborne.selenide.Condition.text;
 import static com.codeborne.selenide.Selenide.page;
 
