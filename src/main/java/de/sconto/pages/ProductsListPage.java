@@ -15,6 +15,7 @@ public class ProductsListPage {
     /* Elements */
     private static By wishlistBtn = By.cssSelector(".wishlistIcon");
     private static By wishListStatus = By.className("headerElement__status--wishlist");
+    private static By loginButton = By.id("addToWishlistLoginBox");
 
     public void clickWishlistBtn() {
         $(wishlistBtn).click();
@@ -27,4 +28,11 @@ public class ProductsListPage {
     public int getWishlistCount() {
         return Integer.parseInt(getWishlistCounterElement().getText());
     }
+    public SelenideElement getLoginButton(){
+        return $(loginButton);
+    }
+    public void clickLoginBtnAtRequestForm() {
+        $(loginButton).click();
+    }
+
 }
