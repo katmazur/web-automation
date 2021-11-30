@@ -7,7 +7,7 @@ import static com.codeborne.selenide.Selenide.$;
 
 public class WishListPage {
 
-    private static By WishListHeader = By.cssSelector(".headline wishlistOverview");
+    private static By WishListHeader = By.cssSelector(".wishlistOverview");
     private static By wishlistEntry  = By.cssSelector(".wishlistEntry");
 
 

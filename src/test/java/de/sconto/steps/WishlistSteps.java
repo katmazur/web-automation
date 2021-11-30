@@ -21,6 +21,11 @@ public class WishlistSteps {
 
     int wishlistCount;
 
+    public WishlistSteps() {
+        loginPage = page(LoginPage.class);
+        wishListPage = page(WishListPage.class);
+    }
+
     @Given("I am on the Product Listing Page")
     public void iAmOnProductsListPage() {
         productsListPage = open(PLPURL, ProductsListPage.class);
@@ -37,12 +42,10 @@ public class WishlistSteps {
     @Then("I see Login request form")
     public void iSeeLoginRequest() {
         productsListPage.getLoginButton().shouldBe(Condition.visible);
-
-
     }
 
     @When("I click on the Login button at the Login request form")
-    public void clickLoginAtRequestForm(){
+    public void clickLoginAtRequestForm() {
         productsListPage.clickLoginBtnAtRequestForm();
     }
 
@@ -53,15 +56,17 @@ public class WishlistSteps {
     }
 
     @Then("I should see WishListPage")
-    public void iSeeLoginWishListPage(){
+    public void iSeeLoginWishListPage() {
         wishListPage.wishListHeader().should(Condition.exist);
         wishListPage.wishListHeader().shouldHave(text("Wunschliste"));
     }
+
     @And("the product is added to the WishListPage")
-    public void isProductAdded(){
+    public void isProductAdded() {
         wishListPage.wishlistEntry().should(Condition.exist);
         wishListPage.wishListHeader().shouldHave(text("Kleiderschrank Base"));
     }
+
     @And("I see that Wishlist icon state at the header is changed")
     public void iSeeWishListIconChanged() {
         productsListPage.getWishlistCounterElement().shouldHave(text(String.valueOf(wishlistCount + 1)));

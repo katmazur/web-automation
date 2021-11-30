@@ -1,5 +1,7 @@
 package de.sconto.pages;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selenide;
 import com.codeborne.selenide.SelenideElement;
 import de.sconto.util.PropertiesLoader;
 import org.openqa.selenium.By;
@@ -15,7 +17,7 @@ public class ProductsListPage {
     /* Elements */
     private static By wishlistBtn = By.cssSelector(".wishlistIcon");
     private static By wishListStatus = By.className("headerElement__status--wishlist");
-    private static By loginButton = By.id("addToWishlistLoginBox");
+    private static By loginButton = By.cssSelector(".fancybox-container #addToWishlistLoginBox");
 
     public void clickWishlistBtn() {
         $(wishlistBtn).click();
@@ -28,10 +30,14 @@ public class ProductsListPage {
     public int getWishlistCount() {
         return Integer.parseInt(getWishlistCounterElement().getText());
     }
-    public SelenideElement getLoginButton(){
+
+    public SelenideElement getLoginButton() {
         return $(loginButton);
     }
+
     public void clickLoginBtnAtRequestForm() {
+        $(loginButton).shouldBe(Condition.visible);
+        Selenide.sleep(3000);
         $(loginButton).click();
     }
 

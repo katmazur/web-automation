@@ -29,6 +29,7 @@ public class LoginSteps {
 
     @Then("I see Login page")
     public void iSeeLoginPage() {
+        loginPage = page(LoginPage.class);
         loginPage.loginPageHeader().should(Condition.exist);
         loginPage.loginPageHeader().shouldHave(text("Anmelden"));
     }
