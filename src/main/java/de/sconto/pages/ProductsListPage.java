@@ -19,8 +19,12 @@ public class ProductsListPage {
     private static By wishListStatus = By.className("headerElement__status--wishlist");
     private static By loginButton = By.cssSelector(".fancybox-container #addToWishlistLoginBox");
 
+    public String lastClickedProdId;
+
     public void clickWishlistBtn() {
-        $(wishlistBtn).click();
+        SelenideElement el = $(".articleTile");
+        lastClickedProdId = el.attr("data-article-number");
+        el.find(wishlistBtn).click();
     }
 
     public SelenideElement getWishlistCounterElement() {

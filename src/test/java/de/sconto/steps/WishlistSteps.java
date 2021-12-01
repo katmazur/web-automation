@@ -7,7 +7,7 @@ import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
-import static com.codeborne.selenide.Condition.text;
+import static com.codeborne.selenide.Condition.*;
 import static com.codeborne.selenide.Selenide.open;
 import static com.codeborne.selenide.Selenide.page;
 import static de.sconto.pages.ProductsListPage.PLPURL;
@@ -39,35 +39,29 @@ public class WishlistSteps {
         productsListPage.clickWishlistBtn();
     }
 
-    @Then("I see Login request form")
+    @Then("I see Login popup")
     public void iSeeLoginRequest() {
         productsListPage.getLoginButton().shouldBe(Condition.visible);
     }
 
-    @When("I click on the Login button at the Login request form")
+    @When("When I click on Login button at Login popup")
     public void clickLoginAtRequestForm() {
         productsListPage.clickLoginBtnAtRequestForm();
     }
 
 
-    @And("I click on Login button at the Login Page")
-    public void iClickLoginButton() {
-        loginPage.clickLoginBtn();
-    }
+//    @And("I click on Login button at the Login Page")
+//    public void iClickLoginButton() {
+//        loginPage.clickLoginBtn();
+//    }
 
-    @Then("I should see WishListPage")
-    public void iSeeLoginWishListPage() {
-        wishListPage.wishListHeader().should(Condition.exist);
-        wishListPage.wishListHeader().shouldHave(text("Wunschliste"));
-    }
-
-    @And("the product is added to the WishListPage")
+    @Then("the product is added to the WishListPage")
     public void isProductAdded() {
         wishListPage.wishlistEntry().should(Condition.exist);
-        wishListPage.wishListHeader().shouldHave(text("Kleiderschrank Base"));
+        wishListPage.wishlistEntry().shouldHave(Condition.attribute("data-wishlist-entry-id", productsListPage.lastClickedProdId));
     }
 
-    @And("I see that Wishlist icon state at the header is changed")
+    @Then("I see that Wishlist icon state at the header is changed")
     public void iSeeWishListIconChanged() {
         productsListPage.getWishlistCounterElement().shouldHave(text(String.valueOf(wishlistCount + 1)));
     }

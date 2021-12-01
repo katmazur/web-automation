@@ -5,7 +5,7 @@ Feature: Sconto Login Feature
   Scenario: Successful Login
     Given I am on the Homepage
     When I click on the Login icon
-    Then I see Login page
+    Then I see "LoginPage"
 
     When I insert valid user credentials
     And I click on Login button
@@ -17,7 +17,7 @@ Feature: Sconto Login Feature
   Scenario Outline: Unsuccessful Login
     Given I am on the Homepage
     When I click on the Login icon
-    Then I see Login page
+    Then I see "LoginPage"
 
     When I insert <username> and <password>
     And I click on Login button

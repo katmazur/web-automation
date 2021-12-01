@@ -21,17 +21,14 @@ public class LoginSteps {
     LoginPage loginPage;
     HomePage homePage;
 
-    @When("I click on the Login icon")
-    public void iClickOnLoginIcon() {
+    public LoginSteps() {
+        loginPage = page(LoginPage.class);
         homePage = page(HomePage.class);
-        loginPage = homePage.clickLoginIcon();
     }
 
-    @Then("I see Login page")
-    public void iSeeLoginPage() {
-        loginPage = page(LoginPage.class);
-        loginPage.loginPageHeader().should(Condition.exist);
-        loginPage.loginPageHeader().shouldHave(text("Anmelden"));
+    @When("I click on the Login icon")
+    public void iClickOnLoginIcon() {
+        homePage.clickLoginIcon();
     }
 
     @When("I insert valid user credentials")
