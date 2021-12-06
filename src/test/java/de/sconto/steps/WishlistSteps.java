@@ -50,11 +50,6 @@ public class WishlistSteps {
     }
 
 
-//    @And("I click on Login button at the Login Page")
-//    public void iClickLoginButton() {
-//        loginPage.clickLoginBtn();
-//    }
-
     @Then("the product is added to the WishListPage")
     public void isProductAdded() {
         wishListPage.wishlistEntry().should(Condition.exist);

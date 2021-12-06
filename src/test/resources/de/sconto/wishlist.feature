@@ -1,8 +1,9 @@
-Feature: Sconto Add product to the Wishlist for not logged in user
+Feature: Sconto Wishlist
   In order to save product for later
   I add product to the Wishlist
 
-  Scenario: Successful Adding to the Wishlist when you initially aren't logged in
+  @Wishlist
+  Scenario: Add product to the wishlist for not logged in user
     Given I am on the Product Listing Page
     When I click on the Wishlist icon
     Then I see Login popup

@@ -23,7 +23,7 @@ public class HomePage {
 
     /* Elements */
 
-    private static By acceptBtn = By.xpath("//*[@data-accept-action='all']");
+    private static By acceptBtn = By.xpath("//*[@data-accept-action='all']/button");
     private static By banner = By.cssSelector(".consentForm__title");
     private static By loginIcon = By.cssSelector(".headerElement--login");
     private static By carouselImg = By.className("headerElement__link--login");
@@ -32,7 +32,7 @@ public class HomePage {
     public void acceptCookies(){
         if ($(acceptBtn).exists()) {
             $(acceptBtn).click();
-            $(banner).shouldNot(Condition.exist);
+            $(banner).shouldNot(Condition.visible);
         }
     }
 
